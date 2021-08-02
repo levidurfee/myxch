@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let addressesList = window.localStorage['addresses'];
         let addresses = addressesList.split(",");
 
+        getTotal(addresses);
+
         let addressElement = <HTMLInputElement>document.getElementById("address");
         addressElement.value = addresses[0];
         addresses.shift();
@@ -81,8 +83,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         addresses.forEach(address => {
             addInput(address);
         });
-
-        getTotal(addresses);
     }
 });
 

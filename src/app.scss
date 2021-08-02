@@ -5,3 +5,11 @@
 footer {
     line-height:100px;
 }
+
+@media screen and (min-width: 500px) {
+    div button.btn {
+        width: auto !important;
+        margin-bottom:0 !important;
+        display: inline-block !important;
+    }
+}

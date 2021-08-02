@@ -1,3 +1,5 @@
+import toastr from "toastr";
+
 const accountBalanceURL = "https://xchscan.com/api/account/balance?address=";
 
 let xch = 0.00;
@@ -66,6 +68,8 @@ if (storageAvailable('localStorage')) {
         }
 
         window.localStorage['addresses'] = addresses;
+
+        toastr.success('Saved!', 'MyXCH');
     }
 }
 

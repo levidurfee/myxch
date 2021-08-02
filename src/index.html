@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XCH Wallet</title>
+    <title>MyXCH</title>
     <link rel="stylesheet" href="./app.scss">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -16,7 +17,7 @@
     <meta name="theme-color" content="#FFFFFF">
 </head>
 <body>
-    <div class="container">
+    <div class="container d-flex flex-column vh-100 bg-light">
         <div class="row">
             <div class="col">
                 <div>
@@ -33,14 +34,20 @@
                     <input type="text" name="address[]" class="address form-control mb-3" id="address">
                     <div id="inputs"></div>
                     <div>
-                        <button class="btn btn-outline-secondary" id="add_input">Add Input</button>
                         <button class="btn btn-primary" id="get_total">Get Total</button>
-                        <button class="btn btn-secondary" class="hide" id="save">Save</button>
+                        <button class="btn btn-outline-secondary" id="add_input">Add Input</button>
+                        <button class="btn btn-outline-success" class="hide" id="save">Save</button>
                     </div>
                 </div>
             </div>
         </div>
+        <footer class="row mt-auto bg-dark text-white text-center">
+            <div class="col">
+                API data provided by <a class="text-success" href="https://xchscan.com/" target="_BLANK">XCHSCAN</a>
+            </div>
+        </footer>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="./app.ts"></script>
     <script type="module">
     // This code sample uses features introduced in Workbox v6.

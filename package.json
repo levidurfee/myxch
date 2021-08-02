@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "parcel-bundler": "^1.12.5",
+    "toastr": "^2.1.4",
     "workbox-recipes": "^6.1.5",
     "workbox-routing": "^6.1.5",
     "workbox-strategies": "^6.1.5"

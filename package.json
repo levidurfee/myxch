@@ -4,13 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "parcel-bundler": "^1.12.5"
+    "parcel-bundler": "^1.12.5",
+    "workbox-recipes": "^6.1.5",
+    "workbox-routing": "^6.1.5",
+    "workbox-strategies": "^6.1.5"
   },
   "devDependencies": {
     "sass": "^1.37.0",
     "typescript": "^4.3.5"
   },
   "scripts": {
-    "build": "npx parcel build src/index.html"
+    "build": "npx parcel build src/index.html",
+    "dev": "npx parcel serve src/index.html"
   }
 }

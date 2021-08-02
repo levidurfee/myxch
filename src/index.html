@@ -12,6 +12,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="theme-color" content="#FFFFFF">
 </head>
 <body>
     <div class="container">
@@ -40,5 +42,47 @@
         </div>
     </div>
     <script src="./app.ts"></script>
+    <script type="module">
+    // This code sample uses features introduced in Workbox v6.
+    import {Workbox} from 'https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs';
+
+    if ('serviceWorker' in navigator) {
+        const wb = new Workbox('/sw.js');
+        let registration;
+
+        const showSkipWaitingPrompt = (event) => {
+        // `event.wasWaitingBeforeRegister` will be false if this is
+        // the first time the updated service worker is waiting.
+        // When `event.wasWaitingBeforeRegister` is true, a previously
+        // updated service worker is still waiting.
+        // You may want to customize the UI prompt accordingly.
+
+        // Assumes your app has some sort of prompt UI element
+        // that a user can either accept or reject.
+        const prompt = createUIPrompt({
+                onAccept: () => {
+                // Assuming the user accepted the update, set up a listener
+                // that will reload the page as soon as the previously waiting
+                // service worker has taken control.
+                wb.addEventListener('controlling', (event) => {
+                    window.location.reload();
+                });
+
+                wb.messageSkipWaiting();
+            },
+
+            onReject: () => {
+                prompt.dismiss();
+            }
+        });
+        };
+
+        // Add an event listener to detect when the registered
+        // service worker has installed but is waiting to activate.
+        wb.addEventListener('waiting', showSkipWaitingPrompt);
+
+        wb.register();
+    }
+    </script>
 </body>
 </html>

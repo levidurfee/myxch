@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function addInput(value: string = "") {
     let input = <HTMLInputElement>document.createElement("input");
     input.name = "address[]";
-    input.classList.add("address", "form-control");
+    input.classList.add("address", "form-control", "mb-3");
     input.value = value;
 
     document.getElementById("inputs").appendChild(input);

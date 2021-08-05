@@ -17,42 +17,18 @@
     <meta name="theme-color" content="#FFFFFF">
 </head>
 <body>
-    <div class="container d-flex flex-column vh-100 bg-light">
-        <div class="row">
-            <div class="col">
-                <h1 class="h6 mt-2">MyXCH</h1>
-                <div class="total d-flex flex-column">
-                    <div class="card mb-2">
-                        <div class="card-body">
-                            <span id="xch">0.0</span>
-                            <small class="x-text text-muted">XCH</small>
-                        </div>
-                    </div>
-                    <div class="card mb-2">
-                        <div class="card-body">
-                            <span id="mojo">0</span>
-                            <small class="x-text text-muted">MOJO</small>
-                        </div>
-                    </div>
+    <div>
+        <div id="App"></div>
+        <div class="container">
+            <footer class="row mt-auto bg-dark text-white text-center">
+                <div class="col">
+                    API data provided by <a class="text-success" href="https://xchscan.com/" target="_BLANK">XCHSCAN</a>
                 </div>
-                <div>
-                    <div id="inputs"></div>
-                    <div>
-                        <button class="d-block mr-md-3 w-100 mb-2 btn btn-primary" id="get_total">Get Total</button>
-                        <button class="d-block mr-md-3 w-100 mb-2 btn btn-outline-secondary" id="add_input">Add Input</button>
-                        <button class="d-block mr-md-3 w-100 mb-2 btn btn-outline-success" class="hide" id="save">Save</button>
-                    </div>
-                </div>
-            </div>
+            </footer>
         </div>
-        <footer class="row mt-auto bg-dark text-white text-center">
-            <div class="col">
-                API data provided by <a class="text-success" href="https://xchscan.com/" target="_BLANK">XCHSCAN</a>
-            </div>
-        </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="./app.ts"></script>
+    <script src="./js/app.js"></script>
     <script type="module">
     // This code sample uses features introduced in Workbox v6.
     import {Workbox} from 'https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs';

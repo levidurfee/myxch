@@ -30,6 +30,9 @@ export default class Total extends Component {
     }
 
     getTotal() {
+        if(window.localStorage.getItem("addresses") == null) {
+            return;
+        }
         let addresses = window.localStorage['addresses'].split(",");
 
         let xch = 0.00;

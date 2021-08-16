@@ -1,5 +1,6 @@
 import { h, Component } from "preact";
 import Total from "../Components/Total";
+import storageAvailable from "../functions";
 
 export default class Home extends Component {
     render() {

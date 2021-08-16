@@ -1,5 +1,6 @@
 import { h, Component } from "preact";
 import Address from "../Components/Address";
+import { getAddresses, setAddresses } from "../functions";
 
 export default class Settings extends Component {
     constructor(props) {
@@ -7,7 +8,7 @@ export default class Settings extends Component {
 
         this.state = {
             new_address: "",
-            addresses: window.localStorage['addresses'].split(","),
+            addresses: getAddresses(),
         }
 
         this.handleAddressInput = this.handleAddressInput.bind(this);
@@ -55,9 +56,9 @@ export default class Settings extends Component {
             toastr.error("Please enter a valid XCH address.");
             return;
         }
-        let addresses = window.localStorage['addresses'].split(",");
+        let addresses = getAddresses();
         addresses.push(this.state.new_address);
-        window.localStorage['addresses'] = addresses;
+        setAddresses(addresses);
 
         this.setState({new_address: ""});
         this.setState({addresses: addresses});
@@ -66,13 +67,13 @@ export default class Settings extends Component {
     }
 
     removeAddress(i) {
-        let addresses = window.localStorage['addresses'].split(",");
+        let addresses = getAddresses();
         addresses.splice(i, 1);
         // if length = 1 and it's empty
         if(addresses.length == 0 && addresses[0] == "") {
             addresses = [];
         }
-        window.localStorage['addresses'] = addresses;
+        setAddresses(addresses);
         this.setState({addresses: addresses});
 
         toastr.success("Address removed!");

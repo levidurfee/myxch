@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyXCH</title>
-    <link rel="stylesheet" href="./app.scss">
+    <link rel="stylesheet" href="./assets/css/app.scss">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.bulldog.dev/lib/fa/5.15.3/css/all.min.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -16,85 +17,23 @@
 
     <meta name="theme-color" content="#FFFFFF">
 </head>
-<body>
-    <div class="container d-flex flex-column vh-100 bg-light">
-        <div class="row">
+<body class="bg-light">
+    <div id="App"></div>
+    <div class="container-fluid">
+        <footer class="row mt-auto bg-dark text-white">
             <div class="col">
-                <h1 class="h6 mt-2">MyXCH</h1>
-                <div class="total d-flex flex-column">
-                    <div class="card mb-2">
-                        <div class="card-body">
-                            <span id="xch">0.0</span>
-                            <small class="x-text text-muted">XCH</small>
-                        </div>
-                    </div>
-                    <div class="card mb-2">
-                        <div class="card-body">
-                            <span id="mojo">0</span>
-                            <small class="x-text text-muted">MOJO</small>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            API data provided by <a class="text-success" href="https://xchscan.com/" target="_BLANK">XCHSCAN</a>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <input type="text" name="address[]" class="address form-control mb-2" id="address">
-                    <div id="inputs"></div>
-                    <div>
-                        <button class="d-block mr-md-3 w-100 mb-2 btn btn-primary" id="get_total">Get Total</button>
-                        <button class="d-block mr-md-3 w-100 mb-2 btn btn-outline-secondary" id="add_input">Add Input</button>
-                        <button class="d-block mr-md-3 w-100 mb-2 btn btn-outline-success" class="hide" id="save">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer class="row mt-auto bg-dark text-white text-center">
-            <div class="col">
-                API data provided by <a class="text-success" href="https://xchscan.com/" target="_BLANK">XCHSCAN</a>
             </div>
         </footer>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="./app.ts"></script>
-    <script type="module">
-    // This code sample uses features introduced in Workbox v6.
-    import {Workbox} from 'https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs';
-
-    if ('serviceWorker' in navigator) {
-        const wb = new Workbox('/sw.js');
-        let registration;
-
-        const showSkipWaitingPrompt = (event) => {
-        // `event.wasWaitingBeforeRegister` will be false if this is
-        // the first time the updated service worker is waiting.
-        // When `event.wasWaitingBeforeRegister` is true, a previously
-        // updated service worker is still waiting.
-        // You may want to customize the UI prompt accordingly.
-
-        // Assumes your app has some sort of prompt UI element
-        // that a user can either accept or reject.
-        const prompt = createUIPrompt({
-                onAccept: () => {
-                // Assuming the user accepted the update, set up a listener
-                // that will reload the page as soon as the previously waiting
-                // service worker has taken control.
-                wb.addEventListener('controlling', (event) => {
-                    window.location.reload();
-                });
-
-                wb.messageSkipWaiting();
-            },
-
-            onReject: () => {
-                prompt.dismiss();
-            }
-        });
-        };
-
-        // Add an event listener to detect when the registered
-        // service worker has installed but is waiting to activate.
-        wb.addEventListener('waiting', showSkipWaitingPrompt);
-
-        wb.register();
-    }
-    </script>
+    <script src="./assets/js/app.js"></script>
 </body>
 </html>

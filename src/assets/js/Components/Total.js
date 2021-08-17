@@ -1,4 +1,5 @@
 import { h, Component } from "preact";
+import { getAddresses } from "../functions";
 import Value from "./Value";
 
 const accountBalanceURL = "https://xchscan.com/api/account/balance?address=";
@@ -33,10 +34,7 @@ export default class Total extends Component {
     }
 
     getTotal() {
-        if(window.localStorage.getItem("addresses") == null) {
-            return;
-        }
-        let addresses = window.localStorage['addresses'].split(",");
+        let addresses = getAddresses();
 
         let xch = 0.00;
         let mojo = 0;

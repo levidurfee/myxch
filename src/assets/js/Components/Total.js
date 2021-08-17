@@ -22,7 +22,7 @@ export default class Total extends Component {
                     <small class="text-muted"><Value name="mojo" value={this.state.mojo} /></small>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-outline-success btn-sm" onclick={this.getTotal}><i class="fal fa-sync"></i></button>
+                    <button class="btn btn-outline-success btn-sm" onclick={() => this.getTotal()}><i class="fal fa-sync"></i></button>
                 </div>
             </div>
         )

@@ -18,7 +18,7 @@ export default class Total extends Component {
             <div class="card shadow-sm">
                 <div class="card-header bg-white">Total</div>
                 <div class="card-body">
-                    <p class="h1 mb-0"><Value name="xch" value={this.state.xch} /></p>
+                    <p class="font-weight-bold mb-0"><Value name="xch" value={this.state.xch} /></p>
                     <small class="text-muted"><Value name="mojo" value={this.state.mojo} /></small>
                 </div>
             </div>
@@ -48,6 +48,12 @@ export default class Total extends Component {
                 let resp = JSON.parse(this.responseText);
                 xch += parseFloat(resp.xch);
                 mojo += parseInt(resp.mojo);
+
+                if(typeof xch != "number") {
+                    return;
+                }
+
+                xch = xch.toFixed(6);
 
                 _self.setState({xch: xch});
                 _self.setState({mojo: mojo});

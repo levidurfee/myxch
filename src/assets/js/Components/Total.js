@@ -21,6 +21,9 @@ export default class Total extends Component {
                     <p class="font-weight-bold mb-0"><Value name="xch" value={this.state.xch} /></p>
                     <small class="text-muted"><Value name="mojo" value={this.state.mojo} /></small>
                 </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-success btn-sm" onclick={this.getTotal}><i class="fal fa-sync"></i></button>
+                </div>
             </div>
         )
     }
